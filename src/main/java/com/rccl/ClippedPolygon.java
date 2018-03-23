@@ -109,4 +109,6 @@ public class ClippedPolygon {
         for (int currentRow = 0; currentRow < polySize; currentRow++)
             System.out.println("(" + landmassPoints[currentRow][0] + "," + landmassPoints[currentRow][1] + ")");
     }
+
+
 }

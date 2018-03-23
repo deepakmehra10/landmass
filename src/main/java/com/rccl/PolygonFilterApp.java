@@ -8,6 +8,7 @@ public class PolygonFilterApp {
         //:TODO
         // Implementation goes here
         List<Float> regionCodeCoordinates = new RegionCodeExtractor().getRegionCode();
+        List<Float> landGeometry = new LandGeometryExtractor().getLandGeometry();
         
         ClippedPolygon clippedPolygon = new ClippedPolygon();
         
@@ -22,8 +23,7 @@ public class PolygonFilterApp {
         landmassPoints[2][1] = -123.3984375f;
         landmassPoints[3][0] = 56.07203547180089f;
         landmassPoints[3][1] = -120.9375f;
-        
-        
+
         int clipper_size = 4;
         float[][] regionCodePoints = {{regionCodeCoordinates.get(1), regionCodeCoordinates.get(0)},
                 {regionCodeCoordinates.get(3), regionCodeCoordinates.get(2)},
@@ -36,4 +36,8 @@ public class PolygonFilterApp {
                 clipper_size);
         
     }
+
+
+
+
 }

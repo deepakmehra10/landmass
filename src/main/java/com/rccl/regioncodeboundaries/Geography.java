@@ -11,4 +11,5 @@ public class Geography {
     
     String type;
     List<Feature> features;
+    
 }

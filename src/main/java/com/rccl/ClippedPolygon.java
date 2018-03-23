@@ -23,7 +23,7 @@ public class ClippedPolygon {
     int clip(int poly_points[][],int poly_size,
               int x1, int y1, int x2, int y2)
     {
-        int [][] new_points = new int[4][2];
+        int [][] new_points = new int[5][2];
         int new_poly_size = 0;
 
         // (ix,iy),(kx,ky) are the co-ordinate values of

@@ -2,8 +2,6 @@ package com.rccl;
 
 public class ClippedPolygon {
 
-   public int poly_size = 3;
-
     int x_intersect(int x1, int y1, int x2, int y2,
                     int x3, int y3, int x4, int y4)
     {
@@ -22,7 +20,7 @@ public class ClippedPolygon {
         return num/den;
     }
 
-    void clip(int poly_points[][],
+    int clip(int poly_points[][],int poly_size,
               int x1, int y1, int x2, int y2)
     {
         int [][] new_points = new int[4][2];
@@ -101,11 +99,11 @@ public class ClippedPolygon {
         }
 
 
-        //return poly_size;
+        return poly_size;
 
     }
 
-    void suthHodgClip(int [][]poly_points,
+    void suthHodgClip(int [][]poly_points, int poly_size,
                       int [][]clipper_points, int clipper_size)
     {
         //i and k are two consecutive indexes
@@ -114,7 +112,7 @@ public class ClippedPolygon {
             //System.out.println("i inside suth: "+i);
             int k = (i+1) % clipper_size;
 
-          clip(poly_points, clipper_points[i][0],
+          poly_size=clip(poly_points,poly_size, clipper_points[i][0],
                     clipper_points[i][1], clipper_points[k][0],
                     clipper_points[k][1]);
         }

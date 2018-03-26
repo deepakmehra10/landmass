@@ -1,9 +1,5 @@
 package com.rccl;
 
-import com.rccl.landmassboundaries.LandGeography;
-
-import java.util.List;
-
 public class PolygonFilterApp {
     
     public static void main(String[] args) throws Exception {
@@ -11,7 +7,7 @@ public class PolygonFilterApp {
         // Implementation goes here
         //List<Float> regionCodeCoordinates = new RegionCodeExtractor().getRegionCode();
        // List<Float> landGeometry = new LandGeometryExtractor().getLandGeometry();
-        
+       /*
         ClippedPolygon clippedPolygon = new ClippedPolygon();
         
         int poly_size = 4;
@@ -24,7 +20,7 @@ public class PolygonFilterApp {
         landmassPoints[2][0] = 48.45835188280866f;
         landmassPoints[2][1] = -123.3984375f;
         landmassPoints[3][0] = 56.07203547180089f;
-        landmassPoints[3][1] = -120.9375f;
+        landmassPoints[3][1] = -120.9375f;*/
         
         /*int clipper_size = 4;
         float[][] regionCodePoints = {{regionCodeCoordinates.get(1), regionCodeCoordinates.get(0)},
@@ -37,10 +33,12 @@ public class PolygonFilterApp {
        /* clippedPolygon.getLandmassGeometry(landmassPoints, poly_size, regionCodePoints,
                 clipper_size);*/
         
-        LandGeometryExtractor.getLengthForPolygonWithMaxCoordinate();
+        //LandGeometryExtractor.getLengthForPolygonWithMaxCoordinate();
         
         //Geography Impl
-        VoyageGeographyImpl.insertVoyageGeography(new RegionCodeExtractor().getRegionCode(),
+      /*  VoyageGeographyImpl.insertVoyageGeography(new RegionCodeExtractor().getRegionCode(),
                 new LandGeometryExtractor().getLandGeometry());
+*/
+        new VoyageResponseExtractor().getVoyageResponse();
     }
 }

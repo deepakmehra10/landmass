@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class VoyageGeographyImpl {
-    
+
+   public static ClippedPolygon clippedPolygon = new ClippedPolygon();
     public static void insertVoyageGeography(RegionGeography regionGeography, LandGeography landGeography) {
         
         regionGeography.getFeatures().forEach(result -> {
@@ -40,32 +41,33 @@ public class VoyageGeographyImpl {
                     {regionCodeCoordinates.get(7), regionCodeCoordinates.get(6)}
             };
             
-            insertLandMassCoordBasedOnRegion(regionCodePoints, landGeography);
+            insertLandMassCordBasedOnRegion(regionCodePoints, landGeography);
             
         });
         
     }
     
-    public static void insertLandMassCoordBasedOnRegion(float[][] regionCodePoints, LandGeography landGeography) {
+    public static void insertLandMassCordBasedOnRegion(float[][] regionCodePoints, LandGeography landGeography) {
         landGeography.getFeatures().forEach(result -> {
             List<List<List<Float>>> coordinates = result.getGeometry().getCoordinates();
             List<Float> landCoordinates = coordinates.stream().flatMap(List::stream).flatMap(List::stream).collect(Collectors.toList());
             System.out.println(landCoordinates.size());
             
-            
+            int landCoordinatesSize = landCoordinates.size()/2;
     
             float[][] landmassPoints = new float[11000][2];
             int rowIndex = 0;
             int coordinateCounter = 0;
-            for (rowIndex = 0; rowIndex < landCoordinates.size()/2 ; rowIndex++){
+            for (rowIndex = 0; rowIndex < landCoordinatesSize ; rowIndex++){
                     landmassPoints[rowIndex][1] = landCoordinates.get(coordinateCounter++);
                     landmassPoints[rowIndex][0] = landCoordinates.get(coordinateCounter++);
                 System.out.println("x =" +landmassPoints[rowIndex][0] + "y=" + landmassPoints[rowIndex][1] );
                 
-    
+
             }
-            
-    
+            clippedPolygon.getLandmassGeometry(landmassPoints,landCoordinatesSize , regionCodePoints,
+                    4);
+
         });
     
     }

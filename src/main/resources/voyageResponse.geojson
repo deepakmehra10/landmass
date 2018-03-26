@@ -1,0 +1,51 @@
+{
+    "regionCode": "CARRIB",
+    "bounds":{"SW":
+              [-74.04728500751165, 40.68392799015035]
+         , 
+         "NE":
+              [-73.91058699000139, 40.87764500765852]
+         },  
+    "voyageGeography": {
+      "type": "FeatureCollection",
+      "features": [{
+        "type": "Feature",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [100.0, 0.0],
+              [101.0, 0.0],
+              [101.0, 1.0],
+              [100.0, 1.0],
+              [100.0, 0.0]
+            ]
+          ]
+        },
+        "properties": {
+          "prop0": {
+            "description": "Cuba"
+          }
+        }
+      }, {
+        "type": "Feature",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [100.0, 0.0],
+              [101.0, 0.0],
+              [101.0, 1.0],
+              [100.0, 1.0],
+              [100.0, 0.0]
+            ]
+          ]
+        },
+        "properties": {
+          "prop0": {
+            "description": "Hati"
+          }
+        }
+      }]
+    }
+  }

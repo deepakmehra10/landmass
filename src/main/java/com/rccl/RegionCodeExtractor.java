@@ -12,14 +12,11 @@ public class RegionCodeExtractor {
     
     private static final ObjectMapper MAPPER = new ObjectMapper();
     
-    public /*List<Float>*/ RegionGeography getRegionCode() throws Exception {
+    public RegionGeography getRegionCode() throws Exception {
         
         RegionGeography regionGeography = MAPPER.readValue(new File(Constants.REGION_CODE_FILE_PATH),
                 RegionGeography.class);
-        
-       // List<List<List<Float>>> coordinates = regionGeography.getFeatures().get(0).getGeometry().getCoordinates();
-       // List<Float> collect = coordinates.stream().flatMap(List::stream).flatMap(List::stream).collect(Collectors.toList());
-       // return collect;
+
         return regionGeography;
     }
 }

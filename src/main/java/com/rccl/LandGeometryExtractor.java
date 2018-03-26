@@ -13,14 +13,10 @@ public class LandGeometryExtractor {
 
     public static int max = 0;
     public static int i = 0;
-    public /*List<Float>*/LandGeography getLandGeometry() throws Exception {
+    public LandGeography getLandGeometry() throws Exception {
 
         LandGeography landGeography = MAPPER.readValue(new File(Constants.LAND_CODE_FILE_PATH),
                 LandGeography.class);
-
-        //List<List<List<Float>>> coordinates = landGeography.getFeatures().get(0).getGeometry().getCoordinates();
-        //List<Float> collect = coordinates.stream().flatMap(List::stream).flatMap(List::stream).collect(Collectors.toList());
-        //return collect;
         return landGeography;
     }
     

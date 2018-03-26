@@ -18,7 +18,8 @@ public class ClippedPolygon {
     
     int clipPolygon(float landmassPoints[][], int polySize, float x1, float y1, float x2, float y2) {
         
-        float[][] clippedLandmass = new float[5][2];
+       //float[][] clippedLandmass = new float[5][2];
+        float[][] clippedLandmass = new float[polySize+1][2];
         int clippedLandmassSize = 0;
         
         // (ix,iy),(kx,ky) are the co-ordinate values of

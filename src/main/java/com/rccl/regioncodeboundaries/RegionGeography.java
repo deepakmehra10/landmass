@@ -1,4 +1,4 @@
-package com.rccl.landmassboundaries;
+package com.rccl.regioncodeboundaries;
 
 import lombok.Builder;
 import lombok.Value;
@@ -7,9 +7,9 @@ import java.util.List;
 
 @Builder
 @Value
-public class Geography {
-
+public class RegionGeography {
+    
     String type;
     List<Feature> features;
-
+    
 }

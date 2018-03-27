@@ -1,5 +1,8 @@
 package com.rccl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ClippedPolygon {
     
     float xIntersectPoint(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
@@ -76,7 +79,7 @@ public class ClippedPolygon {
             
             // Case 4: When both points are outside
             else {
-                System.out.println("Inside Case 4");
+                //System.out.println("Inside Case 4");
                 //No points are added
             }
             
@@ -96,19 +99,29 @@ public class ClippedPolygon {
         
     }
     
-    void getLandmassGeometry(float[][] landmassPoints, int polySize, float[][] regionCodePoints, int clipperSize) {
+    List<List<Float>> getLandmassGeometry(float[][] landmassPoints, int polySize, float[][] regionCodePoints, int clipperSize) {
+    
+        List<List<Float>> polygonGeometry = new ArrayList<>();
+    
         //currentRow and nextRow are two consecutive indexes
         for (int currentRow = 0; currentRow < clipperSize; currentRow++) {
             int nextRow = (currentRow + 1) % clipperSize;
-            
+    
             polySize = clipPolygon(landmassPoints, polySize, regionCodePoints[currentRow][0],
                     regionCodePoints[currentRow][1], regionCodePoints[nextRow][0],
                     regionCodePoints[nextRow][1]);
         }
-        
+    
         // Printing vertices of clipped polygon
-        for (int currentRow = 0; currentRow < polySize; currentRow++)
-            System.out.println("(" + landmassPoints[currentRow][0] + "," + landmassPoints[currentRow][1] + ")");
+        for (int currentRow = 0; currentRow < polySize; currentRow++) {
+           // System.out.println("(" + landmassPoints[currentRow][0] + "," + landmassPoints[currentRow][1] + ")");
+        List<Float> coordinates = new ArrayList<>();
+        coordinates.add(landmassPoints[currentRow][0]);
+        coordinates.add(landmassPoints[currentRow][1]);
+            polygonGeometry.add(coordinates);
+    }
+    
+    return polygonGeometry;
     }
 
 

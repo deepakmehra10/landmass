@@ -13,6 +13,6 @@ public class VoyageResponseExtractor {
 
         Geography voyageGeography = MAPPER.readValue(new File(Constants.VOYAGE_GEOGRAPHY_FILE_PATH),
                 Geography.class);
-        System.out.println(voyageGeography);
+       // System.out.println(voyageGeography);
     }
 }

@@ -21,17 +21,7 @@ public class VoyageGeographyImpl {
                     .flatMap(List::stream).collect(Collectors.toList());
             
             float[][] landmassPoints = new float[11000][2];
-            
-            //landmassPoints[][] =
-          /*  landmassPoints[0][0] = 56.36525013685606f;
-            landmassPoints[0][1] = -133.9453125f;
-            landmassPoints[1][0] = 50.736455137010665f;
-            landmassPoints[1][1] = -136.40625f;
-            landmassPoints[2][0] = 48.45835188280866f;
-            landmassPoints[2][1] = -123.3984375f;
-            landmassPoints[3][0] = 56.07203547180089f;
-            landmassPoints[3][1] = -120.9375f;
-            */
+         
             
             // Region Code Points
             
@@ -40,6 +30,8 @@ public class VoyageGeographyImpl {
                     {regionCodeCoordinates.get(5), regionCodeCoordinates.get(4)},
                     {regionCodeCoordinates.get(7), regionCodeCoordinates.get(6)}
             };
+            System.out.println("region code: "+ result.getProperties().getRegionCode() + "\n\n");
+            
             
             insertLandMassCordBasedOnRegion(regionCodePoints, landGeography);
             
@@ -51,7 +43,7 @@ public class VoyageGeographyImpl {
         landGeography.getFeatures().forEach(result -> {
             List<List<List<Float>>> coordinates = result.getGeometry().getCoordinates();
             List<Float> landCoordinates = coordinates.stream().flatMap(List::stream).flatMap(List::stream).collect(Collectors.toList());
-            System.out.println(landCoordinates.size());
+           // System.out.println(landCoordinates.size());
             
             int landCoordinatesSize = landCoordinates.size()/2;
     
@@ -61,12 +53,15 @@ public class VoyageGeographyImpl {
             for (rowIndex = 0; rowIndex < landCoordinatesSize ; rowIndex++){
                     landmassPoints[rowIndex][1] = landCoordinates.get(coordinateCounter++);
                     landmassPoints[rowIndex][0] = landCoordinates.get(coordinateCounter++);
-                System.out.println("x =" +landmassPoints[rowIndex][0] + "y=" + landmassPoints[rowIndex][1] );
+                //System.out.println("x =" +landmassPoints[rowIndex][0] + "y=" + landmassPoints[rowIndex][1] );
                 
 
             }
-            clippedPolygon.getLandmassGeometry(landmassPoints,landCoordinatesSize , regionCodePoints,
+            
+            List<List<Float>> clippedLandmassGeometry = clippedPolygon.getLandmassGeometry(landmassPoints,landCoordinatesSize , regionCodePoints,
                     4);
+            System.out.println("corresponding clipped polygon coordinates: "+clippedLandmassGeometry+"\n\n");
+           // System.exit(0);
 
         });
     

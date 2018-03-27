@@ -36,9 +36,10 @@ public class PolygonFilterApp {
         //LandGeometryExtractor.getLengthForPolygonWithMaxCoordinate();
         
         //Geography Impl
-      /*  VoyageGeographyImpl.insertVoyageGeography(new RegionCodeExtractor().getRegionCode(),
+       
+        VoyageGeographyImpl.insertVoyageGeography(new RegionCodeExtractor().getRegionCode(),
                 new LandGeometryExtractor().getLandGeometry());
-*/
+
         new VoyageResponseExtractor().getVoyageResponse();
     }
 }

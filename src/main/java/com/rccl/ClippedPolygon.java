@@ -99,9 +99,11 @@ public class ClippedPolygon {
         
     }
     
-    List<List<Float>> getLandmassGeometry(float[][] landmassPoints, int polySize, float[][] regionCodePoints, int clipperSize) {
+    List<List<List<Float>>> getLandmassGeometry(float[][] landmassPoints, int polySize, float[][] regionCodePoints, int clipperSize) {
     
         List<List<Float>> polygonGeometry = new ArrayList<>();
+        List<List<List<Float>>> landMassGeometry = new ArrayList<>();
+
     
         //currentRow and nextRow are two consecutive indexes
         for (int currentRow = 0; currentRow < clipperSize; currentRow++) {
@@ -121,7 +123,8 @@ public class ClippedPolygon {
             polygonGeometry.add(coordinates);
     }
     
-    return polygonGeometry;
+    landMassGeometry.add(polygonGeometry);
+        return landMassGeometry;
     }
 
 

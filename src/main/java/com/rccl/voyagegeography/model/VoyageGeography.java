@@ -8,7 +8,8 @@ import java.util.List;
 @Builder
 @Value
 public class VoyageGeography {
+    
     String type;
     List<Features> features;
-
+    
 }

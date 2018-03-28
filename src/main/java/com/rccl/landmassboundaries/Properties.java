@@ -1,5 +1,6 @@
 package com.rccl.landmassboundaries;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Value;
 
@@ -7,7 +8,10 @@ import lombok.Value;
 @Builder
 public class Properties {
     
-    int scalerank;
-    String featureclass;
+    @JsonProperty("scalerank")
+    int scaleRank;
+    
+    @JsonProperty("featureclass")
+    String featureClass;
     
 }

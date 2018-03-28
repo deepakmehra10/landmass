@@ -6,6 +6,7 @@ import lombok.Value;
 @Value
 @Builder
 public class Features {
+    
     String type;
     Geometry geometry;
     Properties properties;

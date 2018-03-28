@@ -6,6 +6,7 @@ import lombok.Value;
 @Builder
 @Value
 public class Geography {
+    
     String regionCode;
     Bounds bounds;
     VoyageGeography voyageGeography;

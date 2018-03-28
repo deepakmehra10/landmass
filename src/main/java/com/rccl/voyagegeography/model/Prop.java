@@ -5,6 +5,6 @@ import lombok.Value;
 
 @Builder
 @Value
-public class Prop0 {
+public class Prop {
     String description;
 }

@@ -114,16 +114,34 @@ public class ClippedPolygon {
                     regionCodePoints[nextRow][1]);
         }
     
+    
         // Printing vertices of clipped polygon
         for (int currentRow = 0; currentRow < polySize; currentRow++) {
-           // System.out.println("(" + landmassPoints[currentRow][0] + "," + landmassPoints[currentRow][1] + ")");
-        List<Float> coordinates = new ArrayList<>();
-        coordinates.add(landmassPoints[currentRow][0]);
+            List<Float> coordinates = new ArrayList<>();
+            // System.out.println("(" + landmassPoints[currentRow][0] + "," + landmassPoints[currentRow][1] + ")");
         coordinates.add(landmassPoints[currentRow][1]);
+        coordinates.add(landmassPoints[currentRow][0]);
             polygonGeometry.add(coordinates);
+            
+            if(currentRow == (polySize-1)) {
+                //System.out.println("inside curren row");
+                List<Float> lastCoordinates = new ArrayList<>();
+                 lastCoordinates.add(landmassPoints[0][1]);
+                lastCoordinates.add(landmassPoints[0][0]);
+                polygonGeometry.add(lastCoordinates);
+            }
+            //System.out.println(polygonGeometry+"polgon");
     }
     
-    landMassGeometry.add(polygonGeometry);
+        System.out.println(polygonGeometry+"polgon geometry");
+        System.out.println(polygonGeometry.size());
+       // List<Float> lastCoordinates = new ArrayList<>();
+       // lastCoordinates.add(landmassPoints[0][1]);
+        //lastCoordinates.add(landmassPoints[0][0]);
+      //  System.out.println(polygonGeometry.size()+ "Before");
+       // polygonGeometry.add(lastCoordinates);
+        //System.out.println(polygonGeometry.size() + "After");
+        landMassGeometry.add(polygonGeometry);
         return landMassGeometry;
     }
 

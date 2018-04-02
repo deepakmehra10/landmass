@@ -55,12 +55,15 @@ public class VoyageGeographyImpl {
         final CassandraConnector client = new CassandraConnector();
         final String ipAddress = "127.0.0.1";
         final int port = 9042;
+        final String username = "";
+        final String password = "";
         System.out.println("Connecting to IP Address " + ipAddress + ":" + port + "...");
-        session = client.connect(ipAddress, port);
+        session = client.connect(ipAddress, port, username, password);
         return client;
     }
     
-    public static VoyageGeography insertLandMassCordBasedOnRegion(float[][] regionCodePoints, LandGeography landGeography) {
+    public static VoyageGeography insertLandMassCordBasedOnRegion(float[][] regionCodePoints,
+                                                                  LandGeography landGeography) {
         VoyageGeography.VoyageGeographyBuilder voyageGeographyBuilder = VoyageGeography.builder();
         voyageGeographyBuilder.type("FeatureCollection");
         List<Features> featuresList = new ArrayList<>();

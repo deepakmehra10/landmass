@@ -133,8 +133,7 @@ public class ClippedPolygon {
             //System.out.println(polygonGeometry+"polgon");
     }
     
-        System.out.println(polygonGeometry+"polgon geometry");
-        System.out.println(polygonGeometry.size());
+
        // List<Float> lastCoordinates = new ArrayList<>();
        // lastCoordinates.add(landmassPoints[0][1]);
         //lastCoordinates.add(landmassPoints[0][0]);
